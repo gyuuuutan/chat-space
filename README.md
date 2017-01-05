@@ -24,55 +24,22 @@
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
-####users_groups
+####group_users
 |column|type|option|
 |:--:|:--:|:--:|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-###リレーション
+###アソシエーション
 users
-has_many :users_groups
+has_many :group_users
+has_many :groups, though: :group_users
 
 groups
-has_many :users_groups
+has_many :group_users
+has_many :users, though :group_users
 
 messages
-belongs_to :users_groups
-
-users_groups
-belongs_to :users
-belongs_to :groups
-has_many :messages
-
-
-
-
-<!--
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
- -->
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
+belongs_to :group_user
+has_many :users, though: :group_users
+has_many :groups, though: :group_users
