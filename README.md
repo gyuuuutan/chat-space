@@ -5,27 +5,27 @@
 ###テーブル
 
 ####users
-|column|type|constraint|
+|column|type|option|
 |:--:|:--:|:--:|
 |name|string|null: false, index: true|
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 
 ####groups
-|column|type|constraint|
+|column|type|option|
 |:--:|:--:|:--:|
 |name|string|null: false, index: true|
 
 ####messages
-|column|type|constraint|
+|column|type|option|
 |:--:|:--:|:--:|
-|body|text|null: false|
+|body|text||
 |image|string||
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ####users_groups
-|column|type|constraint|
+|column|type|option|
 |:--:|:--:|:--:|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
