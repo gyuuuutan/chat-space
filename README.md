@@ -34,7 +34,7 @@
 users
 has_many :group_users
 has_many :groups, though: :group_users
-belogs_to :message
+belongs_to :message
 
 groups
 has_many :group_users
