@@ -34,12 +34,19 @@
 users
 has_many :group_users
 has_many :groups, though: :group_users
+belogs_to :message, though: :group_users
 
 groups
 has_many :group_users
 has_many :users, though :group_users
+belongs_to :message, though: :group_users
 
 messages
 belongs_to :group_user
 has_many :users, though: :group_users
 has_many :groups, though: :group_users
+
+group_users
+belongs_to :user
+belongs_to :group
+has_many :group_users
