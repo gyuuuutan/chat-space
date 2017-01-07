@@ -32,13 +32,12 @@
     .chat-body
       %ul.chat-messages
         %li.class.chat-message
-          .chat-message__header
-            %p.chat-message__name
-              yoshimura
-            %p.chat-message__time
-              2016/09/29 02:23:55
-            %p.chat-message__body
-              Hello world!
+          %p.chat-message__name
+            yoshimura
+          %p.chat-message__time
+            2016/09/29 02:23:55
+          %p.chat-message__body
+            Hello world!
         %li.class.chat-message
           .chat-message__header
             %p.chat-message__name
@@ -48,11 +47,10 @@
             %p.chat-message__body
               Good bye world!
     .chat-footer
-      %form.new-message
-        .chat-footer__body
-          %textarea{:placeholder => "type a message"}
-          %label.chat-footer__file
-            %i.fa.fa-image
-        %p.chat-footer__send-btn Send
+      .chat-footer__body
+        %textarea{:placeholder => "type a message"}
+        %label.chat-footer__file
+          %i.fa.fa-image
+      %p.chat-footer__send-btn Send
 
 
