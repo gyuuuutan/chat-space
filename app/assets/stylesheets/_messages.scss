@@ -1,4 +1,3 @@
-@import "mixin/clearfix";
 .chat {
   @include clearfix();
   min-width: 980px;
@@ -111,7 +110,7 @@
         padding: 0;
        .chat-message {
           padding-bottom: 40px;
-         .chat-message__header {
+          & {
             line-height: 20px;
            .chat-message__name {
               float: left;
@@ -140,7 +139,7 @@
       left: 0;
       padding: 20px 40px;
       background-color: #dddddd;
-     .new-message {
+      & {
         font: inherit;
        .chat-footer__body {
           float: left;
