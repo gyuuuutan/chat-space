@@ -28,7 +28,7 @@
           letter-spacing: 2px;
           font-size: 16px;
         }
-       .chat-user__actions {
+        &__actions {
           float: right;
          .chat-user__action {
             display: inline-block;
@@ -47,15 +47,15 @@
           display: block;
           padding: 20px 20px;
           cursor: pointer;
-         .chat-group__name {
-          font-size: 15px;
-          margin-bottom: 5px;
-          display: inline-block;
+          &__name {
+            font-size: 15px;
+            margin-bottom: 5px;
+            display: inline-block;
         }
-         .chat-group__message {
-          font-size: 11px;
-          overflow: hidden;
-          white-space: nowrap;
+          &__message {
+            font-size: 11px;
+            overflow: hidden;
+            white-space: nowrap;
          }
        }
      }
@@ -70,7 +70,7 @@
       border-bottom: 1px solid #eeeeee;
       background-color: #ffffff;
       padding: 0 40px;
-     .chat-header__left {
+      &__left {
         float: left;
         margin-top: 35px;
         margin-bottom: 15px;
@@ -84,7 +84,7 @@
           color: #999999;
         }
      }
-     .chat-header__right {
+      &__right {
         float: right;
         p {
           display: inline-block;
@@ -110,25 +110,23 @@
         padding: 0;
        .chat-message {
           padding-bottom: 40px;
-          & {
-            line-height: 20px;
-           .chat-message__name {
+          line-height: 20px
+            &__name {
               float: left;
               margin-right: 10px;
               font-size: 16px;
               font-weight: bold;
               color: #434a54;
            }
-           .chat-message__time {
+            &__time {
               font-size: 12px;
               color: #999999;
            }
-           .chat-message__body {
+            &__body {
               margin-top: 10px;
               font-size: 14px;
               color: #434a54;
            }
-         }
        }
      }
    }
@@ -139,9 +137,7 @@
       left: 0;
       padding: 20px 40px;
       background-color: #dddddd;
-      & {
-        font: inherit;
-       .chat-footer__body {
+      &__body {
           float: left;
           width: calc(100% - 120px);
           position: relative;
@@ -168,7 +164,7 @@
             cursor: pointer;
          }
       }
-     .chat-footer__send-btn {
+      &__send-btn {
         float: right;
         display: inline-block;
         margin-left: 15px;
@@ -180,7 +176,6 @@
         text-align: center;
         padding: 0 20px;
      }
-    }
   }
  }
 }
