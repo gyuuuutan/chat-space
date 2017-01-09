@@ -3,7 +3,8 @@
     %p チャットグループが作成されました。
   .chat-side
     .chat-user
-      %h5 yoshimura
+      %h5
+        = current_user.name
       .chat-user__actions
         .chat-user__action
           %i.fa.fa-pencil-square-o
