@@ -12,6 +12,7 @@ module ChatSpace
     config.generators do |g|
         g.test_framework false
         g.helper false
+        g.assets false
     end
    # ----------------追記終了-----------------------
     # Settings in config/environments/* take precedence over those specified here.
