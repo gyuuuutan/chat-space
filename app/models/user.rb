@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :group_users
   has_many :chat_groups, through: :group_users
-  belongs_to :message
+  has_many :messages
 end
