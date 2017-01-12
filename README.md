@@ -21,32 +21,32 @@
 |:--:|:--:|:--:|
 |body|text||
 |image|string||
-|group_id|integer|null: false, foreign_key: true|
+|chat_group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ####group_users
 |column|type|option|
 |:--:|:--:|:--:|
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|chat_group_id|integer|null: false, foreign_key: true|
 
 ###アソシエーション
 users
 has_many :group_users
-has_many :groups, though: :group_users
+has_many :chat_groups, through: :group_users
 belongs_to :message
 
-groups
+chat_groups
 has_many :group_users
-has_many :users, though: :group_users
+has_many :users, through: :group_users
 belongs_to :message
 
 messages
 belongs_to :group_user
-has_many :users, though: :group_users
-has_many :groups, though: :group_users
+has_many :users, through: :group_users
+has_many :chat_groups, through: :group_users
 
 group_users
 belongs_to :user
-belongs_to :group
+belongs_to :chat_group
 has_many :messages
