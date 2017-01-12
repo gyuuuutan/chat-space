@@ -34,19 +34,17 @@
 users
 has_many :group_users
 has_many :chat_groups, through: :group_users
-belongs_to :message
+has_many :messages
 
 chat_groups
 has_many :group_users
 has_many :users, through: :group_users
-belongs_to :message
+has_many :messages
 
 messages
-belongs_to :group_user
-has_many :users, through: :group_users
-has_many :chat_groups, through: :group_users
+belongs_to :user
+belongs_to :chat_group
 
 group_users
 belongs_to :user
 belongs_to :chat_group
-has_many :messages
