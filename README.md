@@ -11,10 +11,10 @@
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 
-####groups
+####chat_groups
 |column|type|option|
 |:--:|:--:|:--:|
-|name|string|null: false, index: true|
+|name|string|null: false|
 
 ####messages
 |column|type|option|
