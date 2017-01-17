@@ -1,8 +1,6 @@
 class ChatGroupsController < ApplicationController
 
   def index
-    @group_id = GroupUser.where(user_id: current_user.id).group_id
-    @group_name = ChatGroup.find(@group_id).group_name
   end
 
   def new
@@ -10,8 +8,12 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    ChatGroup.create(chat_group_params)
-    redirect_to controller: :chat_groups, action: :index
+    @chat_group = ChatGroup.new(chat_group_params)
+    if @chat_group.save
+      redirect_to root_path, notice: 'チャットグループが作成されました。'
+    else
+      redirect_to new_chat_group_path, alert: 'グループ名を入力してください。'
+    end
   end
 
   private
