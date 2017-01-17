@@ -1,6 +1,8 @@
 class ChatGroupsController < ApplicationController
 
   def index
+    @group_id = GroupUser.where(user_id: current_user.id).group_id
+    @group_name = ChatGroup.find(@group_id).group_name
   end
 
   def new
