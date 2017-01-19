@@ -2,21 +2,21 @@
 
 #データベース設計
 
-###テーブル
+##テーブル
 
-####users
+###users
 |column|type|option|
 |:--:|:--:|:--:|
 |user_name|string|null: false, index: true|
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 
-####chat_groups
+###chat_groups
 |column|type|option|
 |:--:|:--:|:--:|
 |group_name|string|null: false|
 
-####messages
+###messages
 |column|type|option|
 |:--:|:--:|:--:|
 |body|text||
@@ -24,27 +24,27 @@
 |chat_group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
-####group_users
+###group_users
 |column|type|option|
 |:--:|:--:|:--:|
 |user_id|integer|null: false, foreign_key: true|
 |chat_group_id|integer|null: false, foreign_key: true|
 
-###アソシエーション
-users
-has_many :group_users
-has_many :chat_groups, through: :group_users
-has_many :messages
+##アソシエーション
+###users  
+has_many :group_users  
+has_many :chat_groups, through: :group_users  
+has_many :messages    
 
-chat_groups
-has_many :group_users
-has_many :users, through: :group_users
-has_many :messages
+###chat_groups  
+has_many :group_users  
+has_many :users, through: :group_users  
+has_many :messages    
 
-messages
-belongs_to :user
-belongs_to :chat_group
+###messages  
+belongs_to :user  
+belongs_to :chat_group    
 
-group_users
-belongs_to :user
+###group_users  
+belongs_to :user  
 belongs_to :chat_group
