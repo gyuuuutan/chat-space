@@ -2,51 +2,49 @@
 
 #データベース設計
 
-###テーブル
+##テーブル
 
-####users
+###users
 |column|type|option|
 |:--:|:--:|:--:|
-|name|string|null: false, index: true|
+|user_name|string|null: false, index: true|
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 
-####groups
+###chat_groups
 |column|type|option|
 |:--:|:--:|:--:|
-|name|string|null: false, index: true|
+|group_name|string|null: false|
 
-####messages
+###messages
 |column|type|option|
 |:--:|:--:|:--:|
 |body|text||
 |image|string||
-|group_id|integer|null: false, foreign_key: true|
+|chat_group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
-####group_users
+###group_users
 |column|type|option|
 |:--:|:--:|:--:|
 |user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|chat_group_id|integer|null: false, foreign_key: true|
 
-###アソシエーション
-users
-has_many :group_users
-has_many :groups, though: :group_users
-belongs_to :message
+##アソシエーション
+###users  
+has_many :group_users  
+has_many :chat_groups, through: :group_users  
+has_many :messages    
 
-groups
-has_many :group_users
-has_many :users, though: :group_users
-belongs_to :message
+###chat_groups  
+has_many :group_users  
+has_many :users, through: :group_users  
+has_many :messages    
 
-messages
-belongs_to :group_user
-has_many :users, though: :group_users
-has_many :groups, though: :group_users
+###messages  
+belongs_to :user  
+belongs_to :chat_group    
 
-group_users
-belongs_to :user
-belongs_to :group
-has_many :messages
+###group_users  
+belongs_to :user  
+belongs_to :chat_group
