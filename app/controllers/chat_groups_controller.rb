@@ -10,10 +10,30 @@ class ChatGroupsController < ApplicationController
 
   def create
     @chat_group = ChatGroup.new(chat_group_params)
+    @chat_group.users << current_user
     if @chat_group.save
-      render action: :index, notice: 'チャットグループが作成されました。'
+      flash[:notice] = 'チャットグループが作成されました。'
+      render action: :index
     else
-      render action: :new, alert: 'グループ名を入力してください。'
+      flash[:alert] = 'チャットグループを作成できません。'
+      render action: :new
+    end
+  end
+
+  def edit
+    @chat_group = ChatGroup.find(params[:id])
+  end
+
+  def update
+    @chat_group = ChatGroup.find(params[:id])
+    @chat_group.users << current_user
+    if params[:user_id] = current_user.id
+      @chat_group.update(chat_group_params)
+      flash[:notice] = 'チャットグループが更新されました。'
+      render action: :index
+    else
+      flash[:alert] = 'チャットグループを編集できません。'
+      render action: :edit
     end
   end
 
