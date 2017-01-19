@@ -1,3 +1,4 @@
+$fff-color: #ffffff;
 .chat {
   @include clearfix();
   min-width: 980px;
@@ -10,7 +11,7 @@
      .chat-user {
         @include clearfix();
         padding: 20px;
-        color: #ffffff;
+        color: $fff-color;
         background-color: #253141;
         h5 {
           float: left;
@@ -22,19 +23,19 @@
           float: right;
          .chat-user__action {
             a:visited {
-              color: #ffffff;
+              color: $fff-color;
             }
             display: inline-block;
             margin: 15px 0 15px 3px;
             line-height: 28px;
-            color: #ffffff;
+            color: $fff-color;
             font-size: 20px;
             cursor: pointer;
          }
        }
       }
      .chat-groups {
-        color: #ffffff;
+        color: $fff-color;
        .chat-group:hover {
           opacity: 0.75;
        }
@@ -44,7 +45,7 @@
           cursor: pointer;
           list-style: none;
           &__link {
-            color: #ffffff;
+            color: $fff-color;
             text-decoration: none;
           }
           &__name {
@@ -55,7 +56,7 @@
           &__message {
             font-size: 11px;
             overflow: hidden;
-            white-space: nowrap;
+            fff-space: nowrap;
          }
        }
      }
@@ -67,7 +68,7 @@
     height: 100%;
    .chat-header {
       @include clearfix();
-      background-color: #ffffff;
+      background-color: $fff-color;
       padding: 0 40px;
       &__left {
         float: left;
@@ -168,7 +169,7 @@
         display: inline-block;
         margin-left: 15px;
         line-height: 50px;
-        color: #ffffff;
+        color: $fff-color;
         background-color: #38aef0;
         font-size: 16px;
         border: none;
