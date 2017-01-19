@@ -1,5 +1,7 @@
 class ChatGroupsController < ApplicationController
 
+  before_action :set_chat_group, only: [:edit, :update]
+
   def index
     @chat_group = ChatGroup.find(params[:chat_group_id])
   end
@@ -21,11 +23,9 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
-    @chat_group = ChatGroup.find(params[:id])
   end
 
   def update
-    @chat_group = ChatGroup.find(params[:id])
     @chat_group.users << current_user
     if params[:user_id] = current_user.id
       @chat_group.update(chat_group_params)
@@ -40,6 +40,10 @@ class ChatGroupsController < ApplicationController
   private
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
+  end
+
+  def set_chat_group
+    @chat_group = ChatGroup.find(params[:id])
   end
 
 end
