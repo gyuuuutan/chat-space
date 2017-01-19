@@ -13,7 +13,7 @@
     %ul.chat-groups
       - current_user.chat_groups.each do |chat_group|
         %li.chat-group
-          = link_to "chat_groups/#{chat_group.id}/messages", class: 'chat-group__link' do
+          = link_to "/chat_groups/#{chat_group.id}/messages", class: 'chat-group__link' do
             %p.chat-group__name
               = chat_group.name
             %p.chat-group__message
@@ -29,7 +29,8 @@
             = user.name
       .chat-header__right
         %p.chat-header__edit-btn
-          Edit
+          = link_to "/chat_groups/#{@chat_group.id}/edit", class: 'chat_header__edit-btn__link' do
+            Edit
     .chat-body
       %ul.chat-messages
         %li.class.chat-message
