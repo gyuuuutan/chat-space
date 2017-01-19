@@ -1,22 +1,4 @@
 .chat-group-form
   %h1 チャットグループ編集
   = form_for @chat_group do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name "グループ名", class: "chat-group-form__label"
-      .chat-group-form__field--right
-        = f.text_field :name, placeholder: "グループ名を入力してください", type: "text", class: "chat-group-form__input"
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :チャットメンバーを追加, "チャットメンバーを追加", class: "chat-group-form__label"
-      .chat-group-form__field--right
-        .chat-group-form__search.clearfix
-          = f.text_field placeholder: "追加したいユーザー名を入力してください", type: "text", class: "chat-group-form__input"
-        #user-search-result
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :チャットメンバー, class: "chat-group-form__label"
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = f.submit "Save", "data-disable-with": "Save", class: "chat-group-form__action-btn"
+    = render partial: "shared/group_decolate", locals: {f: f}
