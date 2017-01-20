@@ -1,6 +1,6 @@
 class ChatGroupsController < ApplicationController
 
-  before_action :set_chat_group, only: [:edit, :update]
+  before_action :set_chat_group, only: %i(edit update)
 
   def index
     @chat_group = ChatGroup.find(params[:chat_group_id])
@@ -28,7 +28,6 @@ class ChatGroupsController < ApplicationController
   def update
     @chat_group.users << current_user
     if params[:user_id] == current_user.id
-      binding.pry
       @chat_group.update(chat_group_params)
       flash[:notice] = 'チャットグループが更新されました。'
       render action: :index
