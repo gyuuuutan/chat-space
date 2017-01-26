@@ -15,7 +15,7 @@ class ChatGroupsController < ApplicationController
     @chat_group.users << current_user
     if @chat_group.save
       flash[:notice] = 'チャットグループが作成されました。'
-      render action: :index
+      redirect_to action: :index
     else
       flash[:alert] = 'チャットグループを作成できません。'
       render action: :new
@@ -31,7 +31,7 @@ class ChatGroupsController < ApplicationController
       @chat_group.users << current_user
       if @chat_group.save
         flash[:notice] = 'チャットグループが更新されました。'
-        render action: :index
+        redirect_to action: :index
       end
     else
       flash[:alert] = 'チャットグループを編集できません。'
