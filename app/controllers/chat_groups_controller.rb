@@ -29,9 +29,10 @@ class ChatGroupsController < ApplicationController
     if @chat_group.users.include?(current_user)
       @chat_group.update(chat_group_params)
       @chat_group.users << current_user
-      @chat_group.save
-      flash[:notice] = 'チャットグループが更新されました。'
-      render action: :index
+      if @chat_group.save
+        flash[:notice] = 'チャットグループが更新されました。'
+        render action: :index
+      end
     else
       flash[:alert] = 'チャットグループを編集できません。'
       render action: :edit
