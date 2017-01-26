@@ -7,14 +7,14 @@
 ###users
 |column|type|option|
 |:--:|:--:|:--:|
-|user_name|string|null: false, index: true|
+|name|string|null: false, index: true|
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 
 ###chat_groups
 |column|type|option|
 |:--:|:--:|:--:|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ###messages
 |column|type|option|
