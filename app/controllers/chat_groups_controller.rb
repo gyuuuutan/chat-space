@@ -3,7 +3,6 @@ class ChatGroupsController < ApplicationController
   before_action :set_chat_group, only: %i(edit update)
 
   def index
-    @chat_group = ChatGroup.find(params[:chat_group_id])
   end
 
   def new
