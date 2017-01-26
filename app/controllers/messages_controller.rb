@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to action: :index
     else
-      flash[:alert] = "メッセージが送信できませんでした。"
+      flash[:alert] = "メッセージを入力してください。"
       redirect_to action: :index
     end
   end
