@@ -95,6 +95,10 @@
           border: 2px solid;
           cursor: pointer;
         }
+        a {
+          color: $light-blue-color;
+          text-decoration: none;
+        }
      }
    }
    .chat-body {
