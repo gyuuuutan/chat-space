@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     if @message.save
       redirect_to chat_group_messages_path
     else
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body, :image).merge(user_id: current_user.id, chat_group_id: params[:chat_group_id])
+    params.require(:message).permit(:body, :image).merge(chat_group_id: params[:chat_group_id])
   end
 
   def set_chat_group
