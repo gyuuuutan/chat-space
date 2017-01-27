@@ -3,6 +3,7 @@ class ChatGroupsController < ApplicationController
   before_action :set_chat_group, only: %i(edit update)
 
   def index
+    @chat_group = ChatGroup.find(params[:chat_group_id])
   end
 
   def new
@@ -14,7 +15,7 @@ class ChatGroupsController < ApplicationController
     @chat_group.users << current_user
     if @chat_group.save
       flash[:notice] = 'チャットグループが作成されました。'
-      redirect_to chat_group_messages_path(@chat_group)
+      render action: :index
     else
       flash[:alert] = 'チャットグループを作成できません。'
       render action: :new
@@ -30,7 +31,7 @@ class ChatGroupsController < ApplicationController
       @chat_group.users << current_user
       if @chat_group.save
         flash[:notice] = 'チャットグループが更新されました。'
-        redirect_to chat_group_messages_path(@chat_group)
+        render action: :index
       end
     else
       flash[:alert] = 'チャットグループを編集できません。'
