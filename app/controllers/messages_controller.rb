@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
       redirect_to chat_group_messages_path
     else
       flash[:alert] = "メッセージを入力してください。"
-      render action: :index
+      render :index
     end
   end
 
