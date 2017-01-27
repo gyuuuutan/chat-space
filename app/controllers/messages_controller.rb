@@ -1,8 +1,6 @@
 class MessagesController < ApplicationController
-
-  before_action :set_chat_group, only: %i(index create)
-
   def index
+<<<<<<< HEAD
     @message = Message.new
   end
 
@@ -22,6 +20,8 @@ class MessagesController < ApplicationController
   end
 
   def set_chat_group
+=======
+>>>>>>> master
     @chat_group = ChatGroup.find(params[:chat_group_id])
   end
 end
