@@ -10,7 +10,6 @@ describe MessagesController do
   end
 
   describe 'GET #index' do
-
     it "renders the :index template" do
       get :index, chat_group_id: chat_group
       expect(response).to render_template :index
@@ -25,7 +24,6 @@ describe MessagesController do
       get :index, chat_group_id: chat_group
       expect(assigns(:chat_group)).to eq chat_group
     end
-
   end
 
   describe 'Post #create' do
@@ -54,6 +52,5 @@ describe MessagesController do
         expect(response).to render_template :index
       end
     end
-
   end
 end
