@@ -11,7 +11,6 @@ $(function() {
   $('.chat-footer').on('submit', function(e) {
     // HTMLでの送信をキャンセル
     e.preventDefault();
-
     var form = $('.new_message');
 
     // フォームに入力された値を取得
