@@ -29,7 +29,7 @@ $(function() {
     })
     // サーバーから値が正しく返ってきた場合
     .done(function(data) {
-      var html = buildHTML(data);
+      var html = buildHTML(data.message);
       $('.chat-messages').append(html);
       textField.val('');
     })

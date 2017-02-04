@@ -11,13 +11,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to chat_group_messages_path }
-        format.json {
-          render json: {
-            name: current_user.name,
-            created_at: @message.created_at,
-            body: @message.body
-          }
-        }
+        format.json { render 'create', handlers: 'jbuilder' }
       end
     else
       flash[:alert] = "メッセージを入力してください。"
