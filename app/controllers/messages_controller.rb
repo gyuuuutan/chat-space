@@ -9,7 +9,10 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to chat_group_messages_path
+      respond_to do |format|
+        format.html { redirect_to chat_group_messages_path }
+        format.json { render 'create', handlers: 'jbuilder' }
+      end
     else
       flash[:alert] = "メッセージを入力してください。"
       render action: :index
