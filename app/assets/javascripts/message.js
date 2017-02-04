@@ -3,8 +3,8 @@ $(function() {
   function buildHTML(message) {
     var user_name = $('<p class="chat-message__name">').append(message.name);
     var message_time = $('<p class="chat-message__time">').append(message.created_at);
-    var message_body = $('<p class="chat-message__body">').append(message.body)
-    var html = $('<li class="chat-message">').append(user_name, message_time, message_body)
+    var message_body = $('<p class="chat-message__body">').append(message.body);
+    var html = $('<li class="chat-message">').append(user_name, message_time, message_body);
     return html;
   }
 
@@ -14,7 +14,7 @@ $(function() {
     var form = $('.new_message');
 
     // フォームに入力された値を取得
-    var textField = $('#message_body')
+    var textField = $('#message_body');
     var message = textField.val();
 
     $.ajax({
