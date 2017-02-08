@@ -9,7 +9,7 @@
     .chat-group-form__field--left
       = f.label "チャットメンバーを追加", class: "chat-group-form__label"
     #user-search-form.chat-group-form__field--right
-      %input.chat-group-form__input{ type: "text", placeholder: "追加したいメンバーを入力してください" }
+      %input.chat-group-form__input#user-search-input{ type: "text", placeholder: "追加したいメンバーを入力してください" }
     %p#user-search-result.chat-group-form__field--right
 
   .chat-group-form__field.clearfix
