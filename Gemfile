@@ -55,3 +55,4 @@ end
   gem 'erb2haml'
   gem 'font-awesome-sass'
   gem 'devise'
+  gem 'carrierwave'
