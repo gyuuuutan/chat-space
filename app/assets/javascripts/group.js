@@ -33,13 +33,15 @@ $(function() {
       dataType: 'json'
     })
     .done(function(users) {
-      var insertHTML = '';
+      if(word.length != 0) {
+        var insertHTML = '';
 
-      users.forEach(function(user){
-        insertHTML += buildSeacrhedUserHTML(user);
-      });
+        users.forEach(function(user){
+          insertHTML += buildSeacrhedUserHTML(user);
+        });
 
-      $('#user-search-result').append(insertHTML);
+        $('#user-search-result').append(insertHTML);
+      }
     })
     .fail(function(users) {
       alert('エラーが発生しました');
