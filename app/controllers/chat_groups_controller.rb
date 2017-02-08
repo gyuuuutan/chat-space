@@ -11,7 +11,6 @@ class ChatGroupsController < ApplicationController
 
   def create
     @chat_group = ChatGroup.new(chat_group_params)
-    @chat_group.users << current_user
     if @chat_group.save
       flash[:notice] = 'チャットグループが作成されました。'
       redirect_to chat_group_messages_path(@chat_group)
@@ -27,7 +26,6 @@ class ChatGroupsController < ApplicationController
   def update
     if @chat_group.users.include?(current_user)
       @chat_group.update(chat_group_params)
-      @chat_group.users << current_user
       if @chat_group.save
         flash[:notice] = 'チャットグループが更新されました。'
         redirect_to chat_group_messages_path(@chat_group)

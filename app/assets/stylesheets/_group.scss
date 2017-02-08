@@ -70,6 +70,21 @@
       padding: 10px 15px;
       box-sizing: border-box;
     }
+
+    .chat-group-user {
+      @include clearfix();
+      border-bottom: 1px solid #ddd;
+      line-height: 50px;
+      font-size: 14px;
+      a {
+        float: right;
+        color: $light-blue-color;
+        cursor: pointer;
+      }
+      #chat-group-user__delete-button {
+        color: red;
+      }
+    }
   }
 
   .chat-group-user {

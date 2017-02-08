@@ -4,14 +4,26 @@
       = f.label :name, "グループ名", class: "chat-group-form__label"
     .chat-group-form__field--right
       = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input"
+
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :チャットメンバー, "チャットメンバー", class: "chat-group-form__label"
-    .chat-group-form__field--right
-      #chat-group-users
+      = f.label "チャットメンバーを追加", class: "chat-group-form__label"
+    #user-search-form.chat-group-form__field--right
+      %input.chat-group-form__input{ type: "text", placeholder: "追加したいメンバーを入力してください" }
+    %p#user-search-result.chat-group-form__field--right
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label "チャットメンバー", class: "chat-group-form__label"
+    #user-add-list.chat-group-form__field--right
+      - @chat_group.users.each do |user|
         .chat-group-user.clearfix
-          = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name do |b|
-            = b.label { b.check_box + b.text }
+          %input{ type: "hidden", name: "chat_group[user_ids][]", id: "chat_group_user_ids_#{user.id}", value: "#{user.id}" }
+          %p.chat-group-user__name
+            = user.name
+          - if user.name != current_user.name
+            %a#chat-group-user__delete-button 削除
+
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

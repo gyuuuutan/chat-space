@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :chat_groups do
     resources :messages
   end
+  resources :users, only: [:index]
   root "chat_groups#index"
 end
