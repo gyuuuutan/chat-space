@@ -30,6 +30,7 @@ $(function() {
       var html = buildHTML(data.message);
       $('.chat-messages').append(html);
       $this.val('');
+      scrollToBottom();
     })
     // 正しく返ってこなかった場合
     .fail(function() {
