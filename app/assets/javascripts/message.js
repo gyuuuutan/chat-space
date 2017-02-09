@@ -1,13 +1,6 @@
 $(function() {
   // メッセージ送信情報を追加していく関数
   function buildHTML(message) {
-    if(message.image != 0) {
-      var insertMessageHTML =
-      '<br>' +
-      '<img class="chat-message__image">' +
-          message_image +
-      '</imag>' +
-    }
     var html =
     '<li class="chat-message">' +
       '<p class="chat-message__name">' +
@@ -19,7 +12,10 @@ $(function() {
       '<p class="chat-message__body">' +
           message.body +
       '</p>' +
-      insertMessageHTML +
+      '<br>' +
+      '<img class="chat-message__image">' +
+          message.image +
+      '</imag>' +
     '</li>'
     return html;
   }
