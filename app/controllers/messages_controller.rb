@@ -4,6 +4,12 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    @messages = @chat_group.messages.all
+
+    respond_to do |format|
+      format.html
+      format.json { render 'index', handlers: 'jbuilder' }
+    end
   end
 
   def create
