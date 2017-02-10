@@ -46,4 +46,24 @@ $(function() {
       alert('メッセージを送信できません');
     });
   });
+  // メッセージの自動更新
+  var reload = function(){
+    $.ajax({
+      type: 'GET',
+      url: form.attr('action'),
+      dataType: 'json'
+    })
+    .done(function(messages) {
+      $('.chat-message').remove();
+      var insertHTML = '';
+      messages.forEach(function(message) {
+        insertHTML += buildHTML(message);
+      });
+      $('.chat-messages').append(insertHTML);
+    })
+    .fail(function() {
+      alert('更新できません');
+    });
+  };
+  setInterval(reload, 3000);
 });
