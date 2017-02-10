@@ -17,7 +17,7 @@ $(function() {
     '</li>'
     return html;
   }
-  var form = $('.new_message');
+  var form = $('#new_message');
 
   $('#new_message').on('submit', function(e) {
     // HTMLでの送信をキャンセル
