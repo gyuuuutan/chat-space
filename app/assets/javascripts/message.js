@@ -13,18 +13,16 @@ $(function() {
           message.body +
       '</p>' +
       '<br>' +
-      '<img class="chat-message__image">' +
-          message.image +
-      '</imag>' +
+      '<img class="chat-message__image" src="' + message.image + '">' +
     '</li>'
     return html;
   }
+  var form = $('.new_message');
 
   $('#new_message').on('submit', function(e) {
     // HTMLでの送信をキャンセル
     e.preventDefault();
     var $this = $(this);
-    var form = $('.new_message');
 
     // フォームに入力された値を取得
     var fd = new FormData($this.get(0));
@@ -42,11 +40,10 @@ $(function() {
       var html = buildHTML(data.message);
       $('.chat-messages').append(html);
       $this.val('');
-      scrollToBottom();
     })
     // 正しく返ってこなかった場合
     .fail(function() {
-      alert('error');
+      alert('メッセージを送信できません');
     });
   });
 });
