@@ -47,7 +47,7 @@ $(function() {
     });
   });
   // メッセージの自動更新
-  var reload = function(){
+  function reload(){
     $.ajax({
       type: 'GET',
       url: form.attr('action'),
