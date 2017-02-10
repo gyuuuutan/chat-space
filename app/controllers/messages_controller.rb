@@ -4,6 +4,12 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    @messages = @chat_group.messages.all
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -11,7 +17,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to chat_group_messages_path }
-        format.json { render 'create', handlers: 'jbuilder' }
+        format.json
       end
     else
       flash[:alert] = "メッセージを入力してください。"
