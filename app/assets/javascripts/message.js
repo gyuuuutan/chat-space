@@ -47,6 +47,7 @@ $(function() {
     });
   });
   // メッセージの自動更新
+  setInterval(reload, 3000);
   function reload(){
     $.ajax({
       type: 'GET',
@@ -65,5 +66,4 @@ $(function() {
       alert('更新できません');
     });
   };
-  setInterval(reload, 3000);
 });
