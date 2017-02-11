@@ -27,6 +27,12 @@ $(function() {
   $('.chat-footer__body__image').on('change', function() {
     $('#new_message').submit();
   });
+  // 自動スクロール
+  function autoScroll() {
+    $('.chat-body').scrollTop( $('.chat-messages').height() );
+  }
+  autoScroll();
+
   var form = $('#new_message');
 
   $('#new_message').on('submit', function(e) {
@@ -50,6 +56,7 @@ $(function() {
       var html = buildHTML(data.message);
       $('.chat-messages').append(html);
       $this.val('');
+      autoScroll();
     })
     // 正しく返ってこなかった場合
     .fail(function() {
