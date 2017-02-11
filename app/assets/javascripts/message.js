@@ -56,7 +56,7 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data.message);
       $('.chat-messages').append(html);
-      $this.val('');
+      $this.get(0).reset();
       autoScroll();
     })
     // 正しく返ってこなかった場合
