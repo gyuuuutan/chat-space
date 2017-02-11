@@ -23,6 +23,10 @@ $(function() {
     '</li>'
     return html;
   }
+  // ファイル添付時に画像を投稿する
+  $('.chat-footer__body__image').on('change', function() {
+    $('#new_message').submit();
+  });
   var form = $('#new_message');
 
   $('#new_message').on('submit', function(e) {
