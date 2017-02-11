@@ -16,3 +16,4 @@ user-materials/
 group-materials/
 test/
 public/uploads
+.env
