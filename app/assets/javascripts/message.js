@@ -79,9 +79,6 @@ $(function() {
         insertHTML += buildHTML(message);
       });
       $('.chat-messages').append(insertHTML);
-    })
-    .fail(function() {
-      alert('更新できません');
     });
   };
 });
