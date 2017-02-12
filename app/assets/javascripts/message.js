@@ -40,7 +40,7 @@ $(function() {
     e.preventDefault();
     var $this = $(this);
     // 連続投稿を可能にする
-    document.getElementById('chat-footer__send-btn').removeAttribute('data-disable-with');
+    $('#chat-footer__send-btn').removeAttr('data-disable-with');
     // フォームに入力された値を取得
     var fd = new FormData($this.get(0));
 
