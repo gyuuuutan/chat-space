@@ -3,23 +3,19 @@ $(function() {
   function buildHTML(message) {
     var insertImage = '';
     if (message.image) {
-      var insertImage =
-      '<br>' +
-      '<img class="chat-message__image" src="' + message.image + '">';
+      var insertImage =`
+      <br>
+      <img class="chat-message__image" src="${message.image}">
+      `;
     }
-    var html =
-    '<li class="chat-message">' +
-      '<p class="chat-message__name">' +
-          message.name +
-      '</p>' +
-      '<p class="chat-message__time">' +
-          message.time +
-      '</p>' +
-      '<p class="chat-message__body">' +
-          message.body +
-      '</p>' +
-      insertImage +
-    '</li>'
+    var html =`
+    <li class="chat-message">
+      <p class="chat-message__name">${message.name}</p>
+      <p class="chat-message__time">${message.time}</p>
+      <p class="chat-message__body">${message.body}</p>
+      ${insertImage}
+    </li>
+    `
     return html;
   }
   // ファイル添付時に画像を投稿する
