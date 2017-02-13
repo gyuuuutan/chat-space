@@ -30,15 +30,12 @@ $(function() {
 
   var form = $('#new_message');
 
-  $('#new_message').on('submit', function(e) {
+  $('#new_message').submit(function(e) {
     // HTMLでの送信をキャンセル
     e.preventDefault();
     var $this = $(this);
-    // 連続投稿を可能にする
-    $('#chat-footer__send-btn').removeAttr('data-disable-with');
     // フォームに入力された値を取得
     var fd = new FormData($this.get(0));
-
     $.ajax({
       type: form.attr('method'), // フォーム要素("post")を取得
       url: form.attr('action'), // フォーム要素("/chat_group/chat_group_id/messages")を取得
@@ -58,6 +55,7 @@ $(function() {
     .fail(function() {
       alert('メッセージを送信できません');
     });
+    return false;
   });
   // メッセージの自動更新
   setInterval(reload, 3000);
