@@ -10,10 +10,13 @@ CarrierWave.configure do |config|
     path_style: true
   }
 
-  config.cache_storage = :fog
-
-  config.fog_directory = 'jychatspace'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/jychatspace'
+  case Rails.env
+    when 'production', 'development'
+      config.fog_directory = 'jychatspace'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/jychatspace'
+    when 'test'
+      :file
+  end
 end
 
 # 日本語入力を可能にする
