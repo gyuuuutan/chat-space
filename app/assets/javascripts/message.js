@@ -18,18 +18,18 @@ $(function() {
     `
     return html;
   }
-  autoScroll();
-  // ファイル添付時に画像を投稿する
-  $('.chat-footer__body__image').on('change', function() {
-    $('#new_message').submit();
-  });
   // 自動スクロール
   function autoScroll() {
     $('.chat-body').scrollTop( $('.chat-messages').height() );
   }
 
+  // ファイル添付時に画像を投稿する
+  $('.chat-footer__body__image').on('change', function() {
+    $('#new_message').submit();
+  });
   var form = $('#new_message');
 
+  autoScroll();
   $('#new_message').submit(function(e) {
     // HTMLでの送信をキャンセル
     e.preventDefault();
